@@ -49,7 +49,7 @@ void setup() {
 }
 
 unsigned long previousMillis = 0;
-unsigned long interval = 30 * 1000;
+unsigned long interval = 10 * 1000;
 void loop() {
   unsigned long currentMills = millis();
 
