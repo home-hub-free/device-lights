@@ -3,18 +3,19 @@
 #include <server-handler.h>
 
 ESP8266WebServer server(80);
-
+uint8_t LIGHT_PIN = D3;
 int LIGHT_STATE = LOW;
+
 void set() {
   String value = server.arg("value");
   if (value == "true") {
-    digitalWrite(D0, HIGH);
+    digitalWrite(LIGHT_PIN, HIGH);
     // Don't really understand how this works but LOW, turns the built in led ON
     digitalWrite(LED_BUILTIN, LOW);
     LIGHT_STATE = LOW;
   }
   if (value == "false") {
-    digitalWrite(D0, LOW);
+    digitalWrite(LIGHT_PIN, LOW);
     // HIGH turns built in led OFF
     digitalWrite(LED_BUILTIN, HIGH);
     LIGHT_STATE = HIGH;
@@ -36,9 +37,9 @@ void initServer() {
 void setup() {
   Serial.begin(9600);
   pinMode(LED_BUILTIN, OUTPUT);
-  pinMode(D0, OUTPUT);
+  pinMode(LIGHT_PIN, OUTPUT);
 
-  digitalWrite(D0, LOW);
+  digitalWrite(LIGHT_PIN, LOW);
 
   wifiConnect();
   declareDevice();

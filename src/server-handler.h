@@ -16,7 +16,7 @@ const char *ssid = "";
 const char *password = "";
 
 // IP address where the home-hub-free server is running
-String home_server = "http://192.168.1.72:8080";
+String home_server = "http://192.168.1.99:8080";
 
 const uint32 chipId = ESP.getChipId();
 
