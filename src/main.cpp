@@ -28,7 +28,7 @@ void getState() {
   server.send(200, "text/plain", String(LIGHT_STATE));
 }
 
-void initServer() {
+void init_server() {
   server.on("/set", set);
   server.on("/get-state", getState);
   server.begin();
@@ -41,10 +41,10 @@ void setup() {
 
   digitalWrite(LIGHT_PIN, LOW);
 
-  wifiConnect();
-  declareDevice();
+  wifi_connect();
+  ping();
 
-  initServer();
+  init_server();
 
   digitalWrite(LED_BUILTIN, HIGH);
 }
@@ -58,6 +58,6 @@ void loop() {
 
   if (currentMills - previousMillis >= interval) {
     previousMillis = currentMills;
-    declareDevice();
+    ping();
   }
 } 
