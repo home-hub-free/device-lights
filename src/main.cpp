@@ -41,7 +41,7 @@ void setup() {
 
   digitalWrite(LIGHT_PIN, LOW);
 
-  wifi_connect();
+  wifiConnect();
   ping();
 
   init_server();
